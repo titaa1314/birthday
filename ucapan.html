@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 20th Birthday</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #4b6584;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 2px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: #333;
+            width: 80%;
+            max-width: 600px;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #82ccdd;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        button:hover {
+            background-color: #60a3bc;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animasi bunga jatuh */
+        .flower {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://i.imgur.com/IeUZviP.png'); /* Bunga lucu */
+            background-size: cover;
+            opacity: 0.7;
+            animation: fall 10s infinite;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                left: 10%;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                left: 90%;
+            }
+        }
+
+        .flower:nth-child(2) {
+            animation-duration: 8s;
+            left: 20%;
+        }
+
+        .flower:nth-child(3) {
+            animation-duration: 12s;
+            left: 30%;
+        }
+
+        .flower:nth-child(4) {
+            animation-duration: 7s;
+            left: 40%;
+        }
+
+        .flower:nth-child(5) {
+            animation-duration: 9s;
+            left: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Bunga animasi jatuh -->
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+    <div class="flower"></div>
+
+    <h1 class="reveal">Happy 20th Birthday, Farah!</h1>
+
+    <p class="reveal">
+        Hari ini, aku langitkan semua doa terbaik aku untuk kamu. Sesuai sama nama kamu 'Farah' yang artinya kebahagiaan. Semoga hari-hari berikutnya kamu diiringi kebahagiaan yang tidak ada habisnya. Semoga kebahagiaan kamu bersama orang tua yang selalu kamu impikan itu kini sudah terlaksana. Dan yang paling penting, semoga kamu selalu menjadi anak yang sholehah, bukan hanya di dunia saja. Sehat selalu ya, cantik.
+    </p>
+
+    <!-- Gambar yang kamu kirimkan -->
+    <img src="https://storage.googleapis.com/prompt-model-images/file-MdAsWcmz48ARH0eYyXqVkNhJ" alt="Foto momen kebersamaan" class="reveal">
+    <img src="https://storage.googleapis.com/prompt-model-images/file-YeYUCaAsfZnwrSQkZ5tWCNTO" alt="Foto kolase Farah" class="reveal">
+
+    <!-- Embed musik autoplay -->
+    <audio id="birthday-music" autoplay loop>
+        <source src="https://www.youtube.com/embed/bx6IPdHxGlI?si=6_LoNupKNmxXiRHc" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function revealOnScroll() {
+            var reveals = document.querySelectorAll('.reveal');
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+    </script>
+
+</body>
+</html>
